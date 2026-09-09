@@ -3,38 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moon Shadow 100+ Captions 🌙</title>
+    <title>Moon Shadow Captions 🌙</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { 
             background-color: #0d0d15; 
             color: #e2e8f0; 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             position: relative;
         }
-        /* 圖片背景層：加上 ./ 相對路徑指引，幫助 Vercel 精準抓圖 */
+        /* 圖片背景層：直接使用最簡單、最不易出錯的相對路徑與大小寫測試 */
         #dynamic-bg { 
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background-image: url("./Moonshadow_Poster"), url("./Moonshadow_Poster.png"), url("./Moonshadow_Poster.PNG");
+            background-image: url("Moonshadow_Poster"), url("Moonshadow_Poster.png"), url("Moonshadow_Poster.PNG");
             background-size: cover; background-position: center; background-repeat: no-repeat; 
             opacity: 0.22; z-index: -1; pointer-events: none; 
         }
         header { 
             padding: 20px; text-align: center; 
             border-bottom: 1px solid #1f2937; background-color: rgba(0, 0, 0, 0.6); 
-            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
         }
-        header h1 { color: #c084fc; font-size: 22px; letter-spacing: 1px; font-weight: bold; }
+        header h1 { color: #c084fc; font-size: 22px; font-weight: bold; }
         header p { color: #9ca3af; font-size: 12px; margin-top: 5px; }
         main { flex-grow: 1; display: flex; align-items: center; justify-content: center; padding: 20px; }
         .card { 
             background-color: rgba(17, 24, 39, 0.95); border: 1px solid #374151; 
             padding: 24px; border-radius: 16px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5); 
-            max-width: 500px; width: 100%; text-align: center; backdrop-filter: blur(10px);
+            max-width: 500px; width: 100%; text-align: center;
         }
         .meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
         .badge { 
@@ -42,12 +42,11 @@
             border: 1px solid #581c87; font-size: 12px; font-weight: 600; border-radius: 9999px; 
         }
         .counter { color: #6b7280; font-size: 12px; font-family: monospace; }
-        .text-container { min-height: 160px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; }
+        .text-container { min-height: 140px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; }
         #caption-text { font-size: 16px; color: #f3f4f6; line-height: 1.6; font-weight: 500; }
         .btn-main { 
             width: 100%; background: linear-gradient(to right, #9333ea, #4f46e5); color: white; 
-            font-weight: bold; padding: 12px; border-radius: 12px; border: none; cursor: pointer; 
-            box-shadow: 0 4px 14px rgba(147, 51, 234, 0.3); font-size: 14px; margin-bottom: 12px;
+            font-weight: bold; padding: 12px; border-radius: 12px; border: none; cursor: pointer; font-size: 14px; margin-bottom: 12px;
         }
         .btn-main:active { transform: scale(0.98); }
         .grid-btns { display: grid; grid-template-cols: 1fr 1fr; gap: 12px; }
@@ -70,14 +69,14 @@
 
     <header>
         <h1>🌙 MOON SHADOW AI CAPTIONS</h1>
-        <p>每週三晚上 20:30 隨時應援 ‧ 100條全新劇情推測庫</p>
+        <p>每週三晚上 20:30 隨時應援 ‧ 劇情核心精華推測庫</p>
     </header>
 
     <main>
         <div class="card">
             <div class="meta">
                 <span id="caption-style" class="badge">最新進度同步中...</span>
-                <span id="caption-count" class="counter">0/100</span>
+                <span id="caption-count" class="counter">0/20</span>
             </div>
             <div class="text-container">
                 <p id="caption-text">正在同步最新一集進度與劇迷預測庫⋯⋯</p>
@@ -96,28 +95,72 @@
     <footer>每週三 20:30 連動推測庫 ‧ Powered by Vercel</footer>
 
     <script>
-        // 安全無特殊符號版 100 條強大語料庫
+        // 刪減冗長字句、保留 20 條最核心的四大劇情進度推測句
         const captions = [
+            // 【核心 1：確認關係後的甜蜜生活與憧憬】
             { style: "確認關係 ‧ 甜蜜生活", text: "告別金錢合約，迎來真正的清晨吻。看著 Chan 和 Key 一起逛超市選餐具的樣子，這就是我想像中完美的同居生活啊！下集搞快點，我現在就有嚴重的週三綜合症！🛒❤️ #MoonshadowSeries #EmiBonnie #GMMTV" },
             { style: "甜蜜向生活", text: "以前在酒吧眼神拉扯，現在在家裡分吃一碗麵。Chan 總裁那種看著 Key 洗碗時溫柔到要滴出水的眼神，雙向奔赴的甜蜜感真的讓我邊看邊尖叫！今晚必須把趨勢刷上去！✨ #MoonshadowSeries #EmiBonnie" },
             { style: "同居日常預測", text: "盲猜下集兩個人會有早安吻名場面！從此冷酷霸總下班後的唯一行程就是回家抱老婆。這份專屬的偏愛真的甜到讓人牙疼，倒數星期三，我已經等不及看下一集了！📅❤️ #MoonshadowSeries #EmiBonnie" },
             { style: "浪漫未來", text: "監於以前月光是合約，現在月光是妳我。Key 終於可以只為了 Chan 一個人唱歌，而 Chan 的未來規劃裡全都是 Key。這對不結婚真的很難收場，今晚 20:30 鎖定直播！🎙️🌙 #MoonshadowSeries #EmiBonnie" },
             { style: "總裁的溫柔", text: "Chan 以前送支票，現在送家裡的備用鑰匙。看著她們終於確認關係，對未來生活滿滿的嚮往，螢幕前的我笑得像個姨母。下集盲猜要開始發同居大糖了，大家推特刷起來！🔑🥰 #MoonshadowSeries #EmiBonnie" },
-            { style: "專屬歌姬", text: "不再是金主與金絲雀，而是彼此生命中的唯一。Key 靠在 Chan 肩頭談論著以後要一起去海邊旅行的憧憬，那種細水長流的甜太高級了！每週三的命都是 EmiBonnie 給的！🌊❤️ #MoonshadowSeries #EmiBonnie" },
-            { style: "微醺後的甜", text: "今晚首播預告甜度超標！Chan 總裁喝醉了抱著 Key 撒嬌說不想去上班，只想留在家裡。這種確認關係後的反差萌誰受得住啊！為了這對絕美愛情，今晚禿頭也要瘋狂刷𝕏！🫠🍬 #MoonshadowSeries #EmiBonnie" },
-            { style: "柴米油鹽", text: "當高冷總裁解下西裝、換上居家服幫 Key 做早餐，這份對甜蜜生活的憧憬簡直擊中我的心臟。每週三看 Moon Shadow 就是我的續命仙丹，下集搞快點！🍳✨ #MoonshadowSeries #EmiBonnie" },
-            { style: "命定同居", text: "合約撕毀的那一天，才是真愛的開始。看著她們計畫著把公寓重新佈置，滿滿都是對未來的熱情，這就是真情侶的底氣！盲猜下集會甜到發瘟，大家準備好胰島素！🔥❤️ #MoonshadowSeries #EmiBonnie" },
-            { style: "鋼琴前的吻", text: "盲猜下一集：深夜的客廳，Key 在鋼琴前彈奏新歌，Chan 從背後溫柔擁抱。確認關係後的黏人精 Chan 總裁真的太犯規了，距離星期三還有七天，我快要戒斷反應了！😭🎹 #MoonshadowSeries #EmiBonnie" },
-            { style: "心動日常", text: "從酒吧相遇的危險吸引，到如今滿眼都是柴米油鹽的幸福。Chan 和 Key 對未來生活的憧憬真的太美好。今晚 20:30 必須在推特把熱度刷爆，給 EmiBonnie 頂級應援！🚀💖 #MoonshadowSeries #EmiBonnie" },
-            { style: "情侶睡衣預警", text: "盲猜下集有情侶睡衣名場面！Chan 寵溺地捏著 Key 的臉頰，兩個人在沙發上規劃旅行。成年人談起戀愛來的甜蜜憧憬，尊的會讓人一邊看一邊在床上扭成麻花！😂 #MoonshadowSeries #EmiBonnie" },
-            { style: "幸福的引力", text: "當聽完 Chan 的告白，Key 那個幸福的眼淚簡直成噸暴擊我。確認關係後的同居生活請給我拍一百集！今晚衝世界趨勢第一！🌙❤️ #MoonshadowSeries #EmiBonnie" },
-            { style: "總裁變忠犬", text: "確認關係前的 Chan：冷酷無情。確認關係後的 Chan：秒變黏人忠犬大姐姐。看著她們對未來安穩生活的期盼，我就知道這部劇值得我每週三熬夜爆肝刷 𝕏！😎🍬 #MoonshadowSeries #EmiBonnie" },
-            { style: "早安咖啡", text: "盲猜下集：清晨的陽光灑進房間，Key 揉著眼睛看到 Chan 泡好的咖啡和留的小紙條。這種充滿煙火氣的甜蜜憧憬，才是救贖文學的終極形態！下週三快來！☕️✨ #MoonshadowSeries #EmiBonnie" },
-            { style: "專屬聽眾", text: "現在 Key 寫的每一首情歌，歌名都叫 Chan。看著她們確認關係後在陽台看夜景、聊未來的畫面，浪漫到讓人窒息。Moon Shadow 真的太會拍了，今晚打卡衝熱度！🎙️🖤 #MoonshadowSeries #EmiBonnie" },
-            { style: "心牆之後", text: "當 Chan 終於邀請 Key 徹底融入自己的私人生活，那份對未來的嚮往就有了具體的形狀。週三限定的快樂要來了，手動艾特官方快點放正片，劇迷綜合症要發作了！😭💥 #MoonshadowSeries #EmiBonnie" },
-            { style: "幸福對視", text: "她們兩個人對視時的笑意，比酒吧裡最烈的酒還要讓人沉醉。確認關係後的糖尊的太好嗑了，盲猜下集會有更多同居生活的黏膩細節，大家轉發刷起來！🥂❤️ #MoonshadowSeries #EmiBonnie" },
-            { style: "未來的形狀", text: "聽見 Chan 說出每天醒來第一眼想看到妳這句話，直接把 Key 的心死死栓住。看著她們計畫著以後的每一天，這份甜蜜太讓人羨慕了。今晚首播不見不散！🚀🔥 #MoonshadowSeries #EmiBonnie" },
-            { style: "陽台夜話", text: "盲猜下集：深夜吹著晚風，兩個人分喝一杯紅酒，聊著以後要養一隻貓。高冷總裁的溫柔只給 Key 一個人，這種設定我可以看一萬遍！下集快點播！🐱🍷 #MoonshadowSeries #EmiBonnie" },
-            { style: "合約變婚約", text: "從原本各取所需的契約，到現在滿腦子都是和對方的未來。Chan 和 Key 的化學反應簡直是天選，今晚 20:30 推特集合，把這份甜蜜傳遞給全世界！❤️‍🔥✨ #MoonshadowSeries #EmiBonnie" },
-            { style: "情歌的意義", text: "Key 在台上唱歌時，不再帶著面具，因為她知道 Chan 就在台下，而她們的未來是一起回家。看著她們甜蜜生活的憧憬，我露出了欣慰的姨母笑。下集搞快點！🎙️🥰 #MoonshadowSeries #EmiBonnie" },
-            { style: "辦合偷糖", text: "盲猜下集：Key 偷偷去總裁辦公室，Chan 直接放下幾百億的項目，只為了陪她吃午餐、聊同居細節。確認關係後的霸總太會寵了，今晚趨勢刷爆它！💼🍬 #MoonshadowSeries #EmiBonnie" },
+
+            // 【核心 2：前任 Jay 的苦情哀求與 Chan 的決絕】
+            { style: "前任危機 ‧ 苦情哀求", text: "Chan 已經和前任 Jay 說得清清楚楚：我們不可能複合。但 Jay 居然還在雨中苦苦哀求、一邊流淚一邊拉著 Chan 不放。下集修羅場高燃，今晚先在 𝕏 幫 Chan 總裁宣示主權！🔥💔 #MoonshadowSeries #EmiBonnie" },
+            { style: "Jay 的執念", text: "看著 Jay 卑微到塵埃裡的哀求，雖然有點可憐，但 Chan 的冷漠和決絕真的太帥了！Chan 說：我的未來只有 Key。這句話直接封神！下集搞快點，週三綜合症要爆發了！😭💥 #MoonshadowSeries #EmiBonnie" },
+            { style: "決絕與拉扯", text: "前任 Jay 的苦苦哀求，只換來 Chan 一句冷冰冰的放手。盲猜下集 Jay 會看到 Chan 和 Key 甜蜜同居的畫面而徹底崩潰。現任完勝的節奏太爽了！今晚趨勢刷起來！😎 #MoonshadowSeries #EmiBonnie" },
+            { style: "不回頭的愛", text: "當初走得那麼果斷，現在憑什麼求我回頭？Chan 對 Jay 的拒絕有多不留情面，就代表她對 Key 的愛有多死心塌地！Jay 的苦情哀求註定是一場空，下集大修羅場坐等！❤️‍🔥 #MoonshadowSeries #EmiBonnie" },
+            { style: "深夜修羅場", text: "盲猜下一集：Jay 在 Chan 的公司門口攔車，卑微地哭訴過去的溫存，但 Chan 連車窗都懶得搖下來。這種前任苦情拉扯、現任甜蜜發糖的反差太刺激了，今晚 20:30 鎖定首播！🚗💥 #MoonshadowSeries #EmiBonnie" },
+
+            // 【核心 3：新威脅 ‧ Chan 媽媽的突然到訪與階級危機】
+            { style: "新威脅篇 ‧ 母親到訪", text: "甜蜜生活迎來最大危機！Chan 媽媽突然冷酷到訪，那個看著 Key 的挑剔眼神，階級差距的壓迫感瞬間拉滿！盲猜下集要開始搞豪門阻礙了，今晚先在 𝕏 刷一波應援幫她們打氣！😭🔥 #MoonshadowSeries #EmiBonnie" },
+            { style: "豪門風暴", text: "Chan 媽的突然出現簡直是晴天霹靂！她甩出的不裝作階級偏見，更是對這段剛確認關係的甜蜜生活的巨大威脅。盲猜下集 Chan 會為了保護 Key 和媽媽正面硬剛！下集快播吧！💥 #MoonshadowSeries #EmiBonnie" },
+            { style: "階級危機预警", text: "盲猜下一集：Chan 媽私下約見 Key，冷冰冰地說妳和 Chan 不是一個世界的人。這種豪門婆媳走向雖然氣人，但霸總 Chan 絕對會護妻到底！今晚 20:30 鎖定直播！🎙️💔 #MoonshadowSeries #EmiBonnie" },
+            { style: "母親的壓迫感", text: "Chan 媽媽那個氣場尊的太可怕了，一出場就讓原本溫馨的公寓空氣凝固。這個新威脅直接打破了 Chan 和 Key 對未來的甜蜜嚮往。心疼她們，今晚必須把推特趨勢刷到第一！🚀🌙 #MoonshadowSeries #EmiBonnie" },
+            { style: "家庭阻礙", text: "Chan 媽媽把出身和門當戶對看得比什麼都重要，對她來說，酒吧歌手 Key 就是個不穩定的威脅。盲猜下集兩人的同居生活會被搞破壞，今晚大家一起爆肝刷熱度，守護 EmiBonnie！❤️‍🔥 #MoonshadowSeries #EmiBonnie" },
+
+            // 【核心 4：深夜虐點 ‧ Key 隱瞞的 PTSD 創傷】
+            { style: "深夜虐點 ‧ PTSD創傷", text: "表面上玩世不恭、笑得那麼甜的 Key，背後居然隱藏著未曾跟 Chan 袒露的 PTSD 創傷！看著她半夜從噩夢中驚醒、全身發抖的樣子，心疼死我了！今晚推特刷起來，給我們寶貝最頂級的應援！😭💔 #MoonshadowSeries #EmiBonnie" },
+            { style: "隱藏的過去", text: "Key 在台上唱歌時那麼耀眼，誰能想到她深夜一個人躲在角落裡對抗 PTSD 創傷的折磨。那段不為人知的過去，她究竟什麼時候才肯對 Chan 坦白啊！倒數星期三，劇迷綜合症要逼瘋我了！😭💥 #MoonshadowSeries #EmiBonnie" },
+            { style: "噩夢驚醒預警", text: "盲猜下一集名場面：深夜雷雨交加，Key 被未坦露的過去噩夢糾纏、PTSD 發作。Chan 溫柔地把她抱在懷裡，一聲聲安慰。這種深夜互相救贖的糖，雖然帶血但太好嗑了！今晚 20:30 鎖定首播！🎙️🖤 #MoonshadowSeries #EmiBonnie" },
+            { style: "未癒合的傷口", text: "聽見 Key 痛苦唸出我的過去是一片廢墟，我怕會弄髒妳的溫柔這句內心獨白，直接虐哭我。看著她為了不讓 Chan 擔心而隱瞞 PTSD 創傷，今晚必須在 𝕏 幫她們刷上世界第一！🚀🌙 #MoonshadowSeries #EmiBonnie" },
+            { style: "溫柔的解藥", text: "Chan 的懷抱是 Key 治癒 PTSD 創傷的唯一解藥。看著她們在深夜互相依偎、坦白過去的畫面，那種靈魂契合的甜蜜憧憬尊的太美好了。今晚必須在推特把應援熱度刷上第一！🚀🥰 #MoonshadowSeries #EmiBonnie" }
+        ];
+
+        let log = [];
+        let current = "";
+
+        function generateCaption() {
+            if (log.length >= captions.length) log = [];
+            let r;
+            do { r = Math.floor(Math.random() * captions.length); } while (log.includes(r));
+            log.push(r);
+            const sel = captions[r];
+            const textEl = document.getElementById("caption-text");
+            textEl.style.opacity = 0;
+            setTimeout(() => {
+                document.getElementById("caption-style").innerText = sel.style;
+                textEl.innerText = sel.text;
+                document.getElementById("caption-count").innerText = log.length + "/" + captions.length;
+                current = sel.text;
+                textEl.style.opacity = 1;
+            }, 120);
+        }
+
+        function copyToClipboard() {
+            if (!current) return;
+            navigator.clipboard.writeText(current).then(() => {
+                const t = document.getElementById("toast");
+                t.style.opacity = 1;
+                setTimeout(() => { t.style.opacity = 0; }, 1200);
+            });
+        }
+
+        function shareToTwitter() {
+            if (!current) return;
+            window.open("https://twitter.com" + encodeURIComponent(current), '_blank');
+        }
+
+        window.onload = function() { generateCaption(); };
+    </script>
+</body>
+</html>
