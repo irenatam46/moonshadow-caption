@@ -7,7 +7,7 @@
     <!-- 使用 Tailwind CSS CDN 進行極簡精緻排版 -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-                body {
+                       body {
             background-color: #0b0b12;
             position: relative;
             min-height: 100vh;
@@ -19,11 +19,16 @@
             left: 0;
             width: 100%;
             height: 100%;
+            /* 這裡直接寫 Moonshadow_Poster.png 瀏覽器就能完美識別 */
             background-image: url('Moonshadow_Poster.png'); 
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            
+            /* 15% 透明度，隱隱約約的月影海報背景，高級又好看 */
             opacity: 0.15; 
+            
+            /* 將背景圖層置底，且忽略所有滑鼠點擊，完全不妨礙你選取複製文字 */
             z-index: -1;
             pointer-events: none; 
         }
