@@ -6,59 +6,70 @@
     <title>Moon Shadow Captions 🌙</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        /* 🚀 核心修正：採用 100% 必出、速度極快嘅原生暗紫黑夜空漸層，完美模擬深夜月影氛圍 */
         body { 
-            background-color: #0b0b12; color: #e2e8f0; 
-            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-            min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; position: relative;
+            background-color: #050409; 
+            background-image: radial-gradient(circle at 50% 15%, #2a1147 0%, #0d0b18 55%, #050409 100%);
+            color: #e2e8f0; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; 
+            position: relative;
         }
-        /* 🚀 修正：使用 100% 穩定、秒速加載的高清深夜神秘月光底圖，完美貼合月影主題 */
-        #dynamic-bg { 
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background-image: url("https://unsplash.com");
-            background-size: cover; background-position: center; background-repeat: no-repeat; 
-            opacity: 0.15; z-index: -1; pointer-events: none; 
-        }
+
         header { 
-            padding: 16px; text-align: center; border-bottom: 1px solid #1f2937; 
-            background-color: rgba(0, 0, 0, 0.75); backdrop-filter: blur(8px);
+            padding: 16px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
+            background-color: rgba(5, 4, 9, 0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
         }
-        header h1 { color: #c084fc; font-size: 20px; font-weight: bold; }
-        header p { color: #9ca3af; font-size: 11px; margin-top: 4px; }
+        header h1 { color: #c084fc; font-size: 20px; font-weight: bold; letter-spacing: 1px; }
+        header p { color: #a78bfa; font-size: 11px; margin-top: 4px; opacity: 0.8; }
         main { flex-grow: 1; display: flex; align-items: center; justify-content: center; padding: 16px; }
+        
+        /* 🔮 高奢毛玻璃卡片：配合背景漸層，會透出非常精緻嘅暗紫色光暈 */
         .card { 
-            background-color: rgba(17, 24, 39, 0.96); border: 1px solid #374151; 
-            padding: 20px; border-radius: 16px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.6); 
-            max-width: 480px; width: 100%; text-align: center;
+            background-color: rgba(15, 12, 30, 0.75); 
+            border: 1px solid rgba(192, 132, 252, 0.15); 
+            padding: 24px; border-radius: 20px; 
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 40px rgba(147, 51, 234, 0.1); 
+            max-width: 480px; width: 100%; text-align: center; 
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
         }
-        .meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+
+        .meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
         .badge { 
-            padding: 3px 10px; background-color: #2e1065; color: #d8b4fe; 
-            border: 1px solid #581c87; font-size: 11px; font-weight: 600; border-radius: 9999px; 
+            padding: 4px 12px; background-color: rgba(147, 51, 234, 0.25); color: #e9d5ff; 
+            border: 1px solid rgba(192, 132, 252, 0.4); font-size: 11px; font-weight: 600; border-radius: 9999px; 
         }
-        .counter { color: #6b7280; font-size: 11px; font-family: monospace; }
-        .text-container { min-height: 120px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; }
+        .counter { color: #a78bfa; font-size: 11px; font-family: monospace; opacity: 0.7; }
+        .text-container { min-height: 130px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; }
         #caption-text { font-size: 15px; color: #f3f4f6; line-height: 1.6; font-weight: 500; text-align: left; }
+        
         .btn-main { 
-            width: 100%; background: linear-gradient(to right, #9333ea, #4f46e5); color: white; 
-            font-weight: bold; padding: 12px; border-radius: 12px; border: none; cursor: pointer; font-size: 13px; margin-bottom: 10px;
+            width: 100%; background: linear-gradient(to right, #a855f7, #6366f1); color: white; 
+            font-weight: bold; padding: 13px; border-radius: 12px; border: none; cursor: pointer; font-size: 13px; margin-bottom: 12px;
+            box-shadow: 0 4px 14px rgba(168, 85, 247, 0.3); transition: all 0.2s ease;
         }
-        .btn-main:active { transform: scale(0.98); }
+        .btn-main:active { transform: scale(0.98); opacity: 0.9; }
         .grid-btns { display: grid; grid-template-cols: 1fr 1fr; gap: 10px; }
         .btn-sub { 
-            background-color: #111827; color: #e5e7eb; border: 1px solid #374151; 
-            padding: 10px; border-radius: 12px; font-size: 12px; font-weight: 600; cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.05); color: #e5e7eb; border: 1px solid rgba(255, 255, 255, 0.1); 
+            padding: 10px; border-radius: 12px; font-size: 12px; font-weight: 600; cursor: pointer; transition: background 0.2s;
         }
+        .btn-sub:hover { background-color: rgba(255, 255, 255, 0.1); }
+        
         #toast { 
             position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); 
-            background-color: #9333ea; color: white; padding: 6px 14px; border-radius: 10px; 
+            background-color: #a855f7; color: white; padding: 8px 18px; border-radius: 10px; 
             font-size: 11px; font-weight: bold; opacity: 0; transition: opacity 0.3s ease; pointer-events: none; 
+            box-shadow: 0 4px 12px rgba(168, 85, 247, 0.4);
         }
-        footer { padding: 12px; text-align: center; font-size: 11px; color: #4b5563; border-top: 1px solid #111827; }
+        footer { padding: 12px; text-align: center; font-size: 11px; color: #4b5563; border-top: 1px solid rgba(255, 255, 255, 0.03); }
     </style>
 </head>
 <body>
-
-    <div id="dynamic-bg"></div>
 
     <header>
         <h1>🌙 MOON SHADOW AI CAPTIONS</h1>
@@ -78,7 +89,7 @@
                 <button class="btn-main" onclick="nextCaption()">✨ 隨機生成下一集劇情配文 ✨</button>
                 <div class="grid-btns">
                     <button class="btn-sub" onclick="copyText()">📋 複製配文</button>
-                    <button class="btn-sub" style="background-color: #2563eb; color: white; border: none;" onclick="shareTwitter()">X 分享到 Twitter</button>
+                    <button class="btn-sub" style="background-color: #2563eb; color: white; border: none; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);" onclick="shareTwitter()">X 分享到 Twitter</button>
                 </div>
             </div>
             <div id="toast">複製左啦！快d去推特衝趨勢 X</div>
@@ -88,29 +99,28 @@
     <footer>每週三 20:30 連動推測庫 ‧ Powered by Vercel</footer>
 
     <script>
-        // 🚀 採用最安全、絕無符號衝突嘅極簡通用字體陣列，保證 100% 順暢運行
+        // 🚀 精煉安全版廣東話口語化語料庫，絕不卡死網頁
         var data = [
             { s: "同居生活 ‧ 爆甜", t: "唔使再搞金錢合約，終於迎黎真正嘅晨吻。睇住 Chan 同 Key 一齊行超市揀餐具，呢d咪完美同居生活囉！週三綜合症又發作啦！🛒❤️ #MoonshadowSeries #EmiBonnie #GMMTV" },
-            { s: "同居日常 ‧ 糖分", text: "以前喺酒吧用眼神眉來眼去，依家喺屋企分碗麵食。Chan 總裁望住 Key 個眼神溫柔到爆，今晚一齊將趨勢刷上去！✨ #MoonshadowSeries #EmiBonnie" },
+            { s: "同居日常 ‧ 糖分", t: "以前喺酒吧用眼神眉來眼去，依家喺屋企分碗麵食。Chan 總裁望住 Key 個眼神溫柔到爆，今晚一齊將趨勢刷上去！✨ #MoonshadowSeries #EmiBonnie" },
             { s: "劇情走向 ‧ 預測", t: "盲猜下集兩個人會有早安吻！冷酷霸總下班之後唯一行程就係返屋企抱老婆。倒數星期三，我已經等唔及睇下一集啦！📅❤️ #MoonshadowSeries #EmiBonnie" },
             { s: "雙向奔赴 ‧ 浪漫", t: "以前嘅月光係合約，依家嘅月光係妳同我。Key 淨係為 Chan 一個人唱歌，呢對唔結婚真係好難收場，今晚 20:30 鎖定直播！🎙️🌙 #MoonshadowSeries #EmiBonnie" },
             { s: "總裁變溫柔 ‧ 寵溺", t: "Chan 以前送支票，依家送屋企後備鎖匙。睇住佢哋確認關係規劃未來，我笑到好似個姨母咁。下集發同居大糖，大家推特刷起來！🔑🥰 #MoonshadowSeries #EmiBonnie" },
             { s: "前任危機 ‧ 苦情哀求", t: "Chan 同前任 Jay 講得好清楚：我哋冇可能復合。但 Jay 仲喺雨中苦求拉住唔放。下集修羅場高燃，喺 X 幫總裁宣示主權！🔥💔 #MoonshadowSeries #EmiBonnie" },
             { s: "前任卑微 ‧ 決絕抗拒", t: "睇住 Jay 卑微到入塵埃，但 Chan 嘅冷漠同決絕真係型到爆！我嘅未來淨係得 Key 呢句直頭封神！週三綜合症要發作啦！😭💥 #MoonshadowSeries #EmiBonnie" },
-            { s: "放手吧前任 ‧ 爽快打臉", t: "前任 Jay 苦苦哀求只換黎 Chan 冷冰冰嘅放手。盲猜下集 Jay 見到佢哋甜蜜同居畫面會徹底崩潰。現任完勝太爽啦！😎 #MoonshadowSeries #EmiBonnie" },
+            { style: "放手吧前任 ‧ 爽快打臉", t: "前任 Jay 苦苦哀求只換黎 Chan 冷冰冰嘅放手。盲猜下集 Jay 見到佢哋甜蜜同居畫面會徹底崩潰。現任完勝太爽啦！😎 #MoonshadowSeries #EmiBonnie" },
             { s: "新威脅篇 ‧ 母親到訪", t: "甜蜜生活迎最大危機！Chan 媽媽突然冷酷到訪，望住 Key 嘅挑剔眼神壓迫感拉滿！盲猜下集搞豪門阻礙， X 應援刷起來！😭🔥 #MoonshadowSeries #EmiBonnie" },
             { style: "深夜虐點 ‧ 過去創傷", t: "表面笑得咁甜嘅 Key，背後居然隱藏未曾同 Chan 講嘅 PTSD 創傷！看佢半夜噩夢驚醒成身發抖心疼死我，推特刷起來應援！😭💔 #MoonshadowSeries #EmiBonnie" },
             { s: "溫柔嘅解藥", t: "Chan 嘅懷抱係 Key 治癒 PTSD 創傷嘅唯一解藥。睇住佢哋喺深夜互相依偎、坦白過去嘅畫面，呢種靈魂契合嘅甜蜜憧憬真係太美好。今晚必須喺推特將應援熱度刷上第一！🚀🥰 #MoonshadowSeries #EmiBonnie" }
         ];
 
-        var curIdx = 0;
         var curText = "";
 
         function nextCaption() {
             var r = Math.floor(Math.random() * data.length);
             var item = data[r];
             document.getElementById("caption-style").innerText = item.s || "劇情拉扯";
-            var txt = item.t || item.text;
+            var txt = item.t;
             document.getElementById("caption-text").innerText = txt;
             document.getElementById("caption-count").innerText = (r + 1) + "/11";
             curText = txt;
