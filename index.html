@@ -13,7 +13,7 @@
             min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; position: relative;
         }
         
-        /* 🚀 核心修正：直接讀取你 GitHub 倉庫的公開海報路徑（相容有副檔名與無副檔名），100% 必出底圖 */
+        /* 🚀 100% 完美讀取你 GitHub 倉庫海報的公開 Raw 路徑，15% 半透明，絕對不妨礙選取文字 */
         #dynamic-bg { 
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
             background-image: 
@@ -21,9 +21,9 @@
                 url("https://githubusercontent.com"),
                 url("https://githubusercontent.com");
             background-size: cover; 
-            background-position: center 20%; /* 稍微往上調，確保在手機上能完美露出演員的面部 */
+            background-position: center 20%; 
             background-repeat: no-repeat; 
-            opacity: 0.15; /* 15% 超低透明度，保證極致清晰閱讀，絕對不阻擋文字選取 */
+            opacity: 0.15; 
             z-index: -1; 
             pointer-events: none; 
         }
@@ -36,7 +36,7 @@
         header p { color: #9ca3af; font-size: 11px; margin-top: 4px; }
         main { flex-grow: 1; display: flex; align-items: center; justify-content: center; padding: 16px; }
         
-        /* 🔮 卡片加上輕量毛玻璃特效，配合海報底圖會透出淡淡的暗紫色高奢微醺質感 */
+        /* 半透明高奢毛玻璃卡片 */
         .card { 
             background-color: rgba(17, 24, 39, 0.88); border: 1px solid rgba(255, 255, 255, 0.1); 
             padding: 24px; border-radius: 16px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.7); 
@@ -82,7 +82,7 @@
         <div class="card">
             <div class="meta">
                 <span id="caption-style" class="badge">進度同步中...</span>
-                <span id="caption-count" class="counter">1/11</span>
+                <span id="caption-count" class="counter">0/20</span>
             </div>
             <div class="text-container">
                 <p id="caption-text">等緊最新一集進度同劇迷預測庫同步⋯⋯</p>
@@ -101,7 +101,7 @@
     <footer>每週三 20:30 連動推測庫 ‧ Powered by Vercel</footer>
 
     <script>
-        // 🚀 經過精準去重、除錯編碼優化嘅 20 條廣東話語料庫，絕不卡死網頁
+        // 🚀 徹底修復變數命名死角，百分之百流暢加載、絕對不卡死嘅 20 條精華庫
         var data = [
             // 【1-25：確認關係後嘅甜蜜同居生活】
             { s: "同居生活 ‧ 爆甜", t: "唔使再搞金錢合約，終於迎黎真正嘅晨吻。睇住 Chan 同 Key 一齊行超市揀餐具，呢d咪完美同居生活囉！週三綜合症又發作啦！🛒❤️ #MoonshadowSeries #EmiBonnie #GMMTV" },
@@ -114,7 +114,7 @@
             { s: "前任危機 ‧ 苦情哀求", t: "Chan 同前任 Jay 講得好清楚：我哋冇可能復合。但 Jay 仲喺雨中苦求拉住唔放。下集修羅場高燃，喺 X 幫總裁宣示主權！🔥💔 #MoonshadowSeries #EmiBonnie" },
             { s: "前任卑微 ‧ 決絕抗拒", t: "睇住 Jay 卑微到入塵埃，但 Chan 嘅冷漠同決絕真係型到爆！我嘅未來淨係得 Key 呢句直頭封神！週三綜合症要發作啦！😭💥 #MoonshadowSeries #EmiBonnie" },
             { s: "放手吧前任 ‧ 爽快打臉", t: "前任 Jay 苦苦哀求只換黎 Chan 冷冰冰嘅放手。盲猜下集 Jay 見到佢哋甜蜜同居畫面會徹底崩潰。現任完勝太爽啦！😎 #MoonshadowSeries #EmiBonnie" },
-            { s: "死心塌地 ‧ 大修羅場", text: "當初走得咁果斷，依家憑咩求我拧返轉頭？Chan 對前任越狠，代表對 Key 越死心塌地！前任苦求注定一場空，坐等修羅場！❤️‍🔥 #MoonshadowSeries #EmiBonnie" },
+            { s: "死心塌地 ‧ 大修羅場", t: "當初走得咁果斷，依家憑咩求我拧返轉頭？Chan 對前任越狠，代表對 Key 越死心塌地！前任苦求注定一場空，坐等修羅場！❤️‍🔥 #MoonshadowSeries #EmiBonnie" },
             { s: "攔車苦求 ‧ 拒絕動搖", t: "盲猜下一集：Jay 喺公司門口攔車喊住追憶過去，但 Chan 連車窗都費事搖落黎。前任苦情現任發糖，20:30 鎖定首播！🚗💥 #MoonshadowSeries #EmiBonnie" },
 
             // 【51-75：新威脅 ‧ Chan 媽媽突然到訪帶來階級危機】
@@ -122,7 +122,7 @@
             { s: "豪門阻礙 ‧ 守護現任", t: "Chan 媽突然出現簡直晴天霹靂，階級偏見直接威脅甜蜜同居。盲猜下集 Chan 為左保護 Key 同阿媽正面硬剛！下集快播！💥 #MoonshadowSeries #EmiBonnie" },
             { s: "婆媳交鋒 ‧ 霸總護妻", t: "盲猜下一集：Chan 媽私下約見 Key 話妳哋唔係同一個世界嘅人。豪門虐心雖然激氣，但霸總絕對護妻到底！20:30 鎖定直播！🎙️💔 #MoonshadowSeries #EmiBonnie" },
             { s: "不速之客 ‧ 階級偏見", t: "Chan 媽媽氣場太恐怖，一登場溫馨公寓空氣凝結。呢個新威脅打破了甜蜜嚮往。心疼現任，今晚將推特趨勢刷到第一！🚀🌙 #MoonshadowSeries #EmiBonnie" },
-            { s: "商業聯姻 ‧ 抗爭到底", t: "盲猜下集：Chan 媽強行安排商業聯姻想逼走 Key。剛確認關係又要面對新威脅，我提前得週三戒斷綜合症了！編劇冇心！😭💔 #MoonshadowSeries #EmiBonnie" },
+            { s: "商業聯姻 ‧抗爭到底", t: "盲猜下集：Chan 媽強行安排商業聯姻想逼走 Key。剛確認關係又要面對新威脅，我提前得週三戒斷綜合症了！編劇冇心！😭💔 #MoonshadowSeries #EmiBonnie" },
 
             // 【76-100：深夜虐點 ‧ Key 隱瞞嘅 PTSD 創傷】
             { s: "深夜虐點 ‧ 過去創傷", t: "表面笑得咁甜嘅 Key，背後居然隱藏未曾同 Chan 講嘅 PTSD 創傷！看佢半夜噩夢驚醒成身發抖心疼死我，推特刷起來應援！😭💔 #MoonshadowSeries #EmiBonnie" },
@@ -135,3 +135,33 @@
         var curText = "";
 
         function nextCaption() {
+            var r = Math.floor(Math.random() * data.length);
+            var item = data[r];
+            document.getElementById("caption-style").innerText = item.s;
+            document.getElementById("caption-text").innerText = item.t;
+            document.getElementById("caption-count").innerText = (r + 1) + "/" + data.length;
+            curText = item.t;
+        }
+
+        function copyText() {
+            if (!curText) return;
+            var el = document.createElement('textarea');
+            el.value = curText;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            var t = document.getElementById("toast");
+            t.style.opacity = 1;
+            setTimeout(function() { t.style.opacity = 0; }, 1200);
+        }
+
+        function shareTwitter() {
+            if (!curText) return;
+            window.open("https://twitter.com" + encodeURIComponent(curText), '_blank');
+        }
+
+        window.onload = function() { nextCaption(); };
+    </script>
+</body>
+</html>
