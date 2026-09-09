@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moon Shadow Random Caption Generator 🌙</title>
+    <!-- 使用 Tailwind CSS CDN 進行極簡精緻排版 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #0d0d15;
+            background-image: radial-gradient(circle at 50% 10%, #1e1b4b 0%, #0d0d15 70%);
+        }
+    </style>
+</head>
+<body class="text-gray-200 min-h-screen flex flex-col justify-between font-sans">
+
+    <!-- 頂部導航/標題 -->
+    <header class="p-6 text-center border-b border-gray-800 bg-opacity-40 bg-black backdrop-blur-md">
+        <h1 class="text-2xl font-bold tracking-wider text-purple-400">🌙 MOON SHADOW CAPTIONS</h1>
+        <p class="text-xs text-gray-400 mt-1">每週三 20:30 準時鎖定 EmiBonnie 專屬 Twitter 刷趨勢神器</p>
+    </header>
+
+    <!-- 主體內容卡片 -->
+    <main class="flex-grow flex items-center justify-center p-4">
+        <div class="bg-gray-900 bg-opacity-70 border border-gray-800 p-6 rounded-2xl shadow-2xl max-w-lg w-full text-center backdrop-blur-lg">
+            
+            <!-- 分類標籤 (顯示風格) -->
+            <span id="caption-style" class="inline-block px-3 py-1 bg-purple-900 bg-opacity-50 text-purple-300 border border-purple-700 text-xs font-semibold rounded-full mb-4 uppercase tracking-widest">
+                風格載入中...
+            </span>
+
+            <!-- 文字顯示區域 -->
+            <div class="min-h-[140px] flex items-center justify-center mb-6">
+                <p id="caption-text" class="text-lg text-gray-100 font-medium leading-relaxed tracking-wide transition-all duration-300">
+                    點擊下方按鈕，生成屬於你的週三月影配文。
+                </p>
+            </div>
+
+            <!-- 操作按鈕組 -->
+            <div class="space-y-3">
+                <!-- 生成按鈕 -->
+                <button onclick="generateCaption()" class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold py-3 px-4 rounded-xl transition duration-200 shadow-lg shadow-purple-900/40 tracking-wide text-sm">
+                    ✨ 隨機生成配文 ✨
+                </button>
+
+                <!-- 一鍵複製與推特分流 -->
+                <div class="grid grid-cols-2 gap-3">
+                    <button onclick="copyToClipboard()" class="bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-700 py-2 px-4 rounded-xl text-xs font-semibold transition duration-150 flex items-center justify-center gap-1">
+                        📋 複製配文
+                    </button>
+                    <button onclick="shareToTwitter()" class="bg-blue-600 hover:bg-blue-500 text-white py-2 px-4 rounded-xl text-xs font-semibold transition duration-150 flex items-center justify-center gap-1">
+                        𝕏 分享到 Twitter
+                    </button>
+                </div>
+            </div>
+
+            <!-- Toast 提示特效 -->
+            <div id="toast" class="fixed bottom-24 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-4 py-2 rounded-xl text-xs font-bold opacity-0 transition-opacity duration-300 shadow-lg pointer-events-none">
+                已成功複製到剪貼簿！
+            </div>
+
+        </div>
+    </main>
+
+    <!-- 頁尾聲明 -->
+    <footer class="p-4 text-center text-xs text-gray-600 border-t border-gray-900 bg-black bg-opacity-20">
+        Powered by Vercel & EmiBonnie Fans 🪐
+    </footer>
+
+    <script>
+        // 內置你的 1, 2, 3 風格配文數據庫
+        const captions = [
+            {
+                style: "風格 1：追劇應援風",
+                text: "☕️ 星期三的續命丹不是咖啡，是晚上 20:30 的 Moonshadow。包養文學、酒吧微醺、還有眼神拉扯⋯⋯ EmiBonnie 懂不懂什麼叫極致的化學反應啊！救命，我的心已經被她們包養了。🫠🌙✨ #MoonshadowSeries #EmiBonnie #GMMTV"
+            },
+            {
+                style: "風格 2：時尚氛圍感",
+                text: "「在月影之下，每個人都有無法逃離的引力。」就像 Chan 逃不掉 Key 的眼睛，我們也逃不過星期三的月色。今晚繼續沉迷在這一場危險又迷人的拉扯裡。🖤🎙️ #MoonshadowSeries #EmiBonnie @emi_thasorn @bonnie_pattraphus"
+            },
+            {
+                style: "風格 3：微醺性感風",
+                text: "Tonight's mood: 酒吧的微醺，和月光下的妳。🥂 到底是誰包養了誰？反正每到星期三，我的靈魂都準時向她們報到。這段關係，我申請永久續約！ #MoonshadowSeries #EmiBonnie #GMMTV25"
+            }
+        ];
+
+        let currentCaption = "";
+
+        // 隨機抽選函數
+        function generateCaption() {
+            const randomIndex = Math.floor(Math.random() * captions.length);
+            const selected = captions[randomIndex];
+            
+            document.getElementById("caption-style").innerText = selected.style;
+            document.getElementById("caption-text").innerText = selected.text;
+            currentCaption = selected.text;
+        }
+
+        // 一鍵複製功能
+        function copyToClipboard() {
+            if (!currentCaption) {
+                alert("請先點擊生成配文！");
+                return;
+            }
+            navigator.clipboard.writeText(currentCaption).then(() => {
+                const toast = document.getElementById("toast");
+                toast.classList.remove("opacity-0");
+                toast.classList.add("opacity-100");
+                setTimeout(() => {
+                    toast.classList.remove("opacity-100");
+                    toast.classList.add("opacity-0");
+                }, 2000);
+            });
+        }
+
+        // 一鍵直達 Twitter 並自動填寫內容與 Tag
+        function shareToTwitter() {
+            if (!currentCaption) {
+                alert("請先點擊生成配文！");
+                return;
+            }
+            const twitterUrl = `https://twitter.com{encodeURIComponent(currentCaption)}`;
+            window.open(twitterUrl, '_blank');
+        }
+
+        // 網頁初始加載時自動執行一次
+        window.onload = generateCaption;
+    </script>
+</body>
+</html>
