@@ -9,17 +9,17 @@
         body { 
             background-color: #0d0d15; 
             color: #e2e8f0; 
-            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             position: relative;
         }
-        /* 圖片背景層：直接使用最簡單、最不易出錯的相對路徑與大小寫測試 */
+        /* 圖片背景層：直接鎖定最常見嘅 .png 格式，加上相對路徑引導 */
         #dynamic-bg { 
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background-image: url("Moonshadow_Poster"), url("Moonshadow_Poster.png"), url("Moonshadow_Poster.PNG");
+            background-image: url("./Moonshadow_Poster.png"), url("./Moonshadow_Poster"), url("./Moonshadow_Poster.PNG");
             background-size: cover; background-position: center; background-repeat: no-repeat; 
             opacity: 0.22; z-index: -1; pointer-events: none; 
         }
@@ -69,17 +69,17 @@
 
     <header>
         <h1>🌙 MOON SHADOW AI CAPTIONS</h1>
-        <p>每週三晚上 20:30 隨時應援 ‧ 劇情核心精華推測庫</p>
+        <p>每週三晚上 20:30 隨時應援 ‧ 廣東話口語精華語料庫</p>
     </header>
 
     <main>
         <div class="card">
             <div class="meta">
-                <span id="caption-style" class="badge">最新進度同步中...</span>
+                <span id="caption-style" class="badge">進度同步中...</span>
                 <span id="caption-count" class="counter">0/20</span>
             </div>
             <div class="text-container">
-                <p id="caption-text">正在同步最新一集進度與劇迷預測庫⋯⋯</p>
+                <p id="caption-text">等緊最新一集進度同劇迷預測庫同步⋯⋯</p>
             </div>
             <div>
                 <button class="btn-main" onclick="generateCaption()">✨ 隨機生成下一集劇情配文 ✨</button>
@@ -88,42 +88,42 @@
                     <button class="btn-sub btn-twitter" onclick="shareToTwitter()">𝕏 分享到 Twitter</button>
                 </div>
             </div>
-            <div id="toast">已複製配文！快去推特衝趨勢吧 𝕏</div>
+            <div id="toast">複製咗啦！快啲去推特衝趨勢 𝕏</div>
         </div>
     </main>
 
     <footer>每週三 20:30 連動推測庫 ‧ Powered by Vercel</footer>
 
     <script>
-        // 刪減冗長字句、保留 20 條最核心的四大劇情進度推測句
+        // 20 條完全廣東話口語化、絕不卡機嘅四大核心劇透庫
         const captions = [
-            // 【核心 1：確認關係後的甜蜜生活與憧憬】
-            { style: "確認關係 ‧ 甜蜜生活", text: "告別金錢合約，迎來真正的清晨吻。看著 Chan 和 Key 一起逛超市選餐具的樣子，這就是我想像中完美的同居生活啊！下集搞快點，我現在就有嚴重的週三綜合症！🛒❤️ #MoonshadowSeries #EmiBonnie #GMMTV" },
-            { style: "甜蜜向生活", text: "以前在酒吧眼神拉扯，現在在家裡分吃一碗麵。Chan 總裁那種看著 Key 洗碗時溫柔到要滴出水的眼神，雙向奔赴的甜蜜感真的讓我邊看邊尖叫！今晚必須把趨勢刷上去！✨ #MoonshadowSeries #EmiBonnie" },
-            { style: "同居日常預測", text: "盲猜下集兩個人會有早安吻名場面！從此冷酷霸總下班後的唯一行程就是回家抱老婆。這份專屬的偏愛真的甜到讓人牙疼，倒數星期三，我已經等不及看下一集了！📅❤️ #MoonshadowSeries #EmiBonnie" },
-            { style: "浪漫未來", text: "監於以前月光是合約，現在月光是妳我。Key 終於可以只為了 Chan 一個人唱歌，而 Chan 的未來規劃裡全都是 Key。這對不結婚真的很難收場，今晚 20:30 鎖定直播！🎙️🌙 #MoonshadowSeries #EmiBonnie" },
-            { style: "總裁的溫柔", text: "Chan 以前送支票，現在送家裡的備用鑰匙。看著她們終於確認關係，對未來生活滿滿的嚮往，螢幕前的我笑得像個姨母。下集盲猜要開始發同居大糖了，大家推特刷起來！🔑🥰 #MoonshadowSeries #EmiBonnie" },
+            // 【核心 1：確認關係後嘅甜蜜生活同憧憬】
+            { style: "確認關係 ‧ 甜蜜生活", text: "唔使再搞咩金錢合約，終於迎嚟真正嘅晨吻。睇住 Chan 同 Key 一齊行超市揀餐具，呢啲咪就係我最想要嘅同居生活囉！下集搞快點啦，我依家有超嚴重嘅週三綜合症啊！🛒❤️ #MoonshadowSeries #EmiBonnie #GMMTV" },
+            { style: "甜蜜向生活", text: "以前喺酒吧用眼神眉來眼去，依家喺屋企分埋同一碗麵食。Chan 總裁望住 Key 洗碗嗰陣個眼神溫柔到就快滴得出水，雙向奔赴嘅爆甜感真係睇到我喺度尖叫！今晚一定要將個趨勢刷上去！✨ #MoonshadowSeries #EmiBonnie" },
+            { style: "同居日常預測", text: "盲猜下集兩個人會有早安吻名場面！從此冷酷霸總下班之後唯一嘅行程就係返屋企抱老婆。呢份專屬嘅偏愛真係甜到漏，倒數星期三，我已經等唔及睇下一集啦！📅❤️ #MoonshadowSeries #EmiBonnie" },
+            { style: "浪漫未來", text: "話晒以前嘅月光係合約，依家嘅月光係妳同我。Key 終於可以淨係為 Chan 一個人唱歌，而 Chan 嘅未來規劃裡面全部都係 Key。呢對唔結婚真係好難收場，今晚 20:30 鎖定直播！🎙️🌙 #MoonshadowSeries #EmiBonnie" },
+            { style: "總裁嘅溫柔", text: "Chan 以前就送支票，依家就送屋企嘅後備鎖匙。睇住佢哋終於確定關係，對未來生活滿滿嘅憧憬，螢幕前嘅我笑到好似個姨母咁。下集盲猜要開始發同居大糖，大家推特刷起來！🔑🥰 #MoonshadowSeries #EmiBonnie" },
 
-            // 【核心 2：前任 Jay 的苦情哀求與 Chan 的決絕】
-            { style: "前任危機 ‧ 苦情哀求", text: "Chan 已經和前任 Jay 說得清清楚楚：我們不可能複合。但 Jay 居然還在雨中苦苦哀求、一邊流淚一邊拉著 Chan 不放。下集修羅場高燃，今晚先在 𝕏 幫 Chan 總裁宣示主權！🔥💔 #MoonshadowSeries #EmiBonnie" },
-            { style: "Jay 的執念", text: "看著 Jay 卑微到塵埃裡的哀求，雖然有點可憐，但 Chan 的冷漠和決絕真的太帥了！Chan 說：我的未來只有 Key。這句話直接封神！下集搞快點，週三綜合症要爆發了！😭💥 #MoonshadowSeries #EmiBonnie" },
-            { style: "決絕與拉扯", text: "前任 Jay 的苦苦哀求，只換來 Chan 一句冷冰冰的放手。盲猜下集 Jay 會看到 Chan 和 Key 甜蜜同居的畫面而徹底崩潰。現任完勝的節奏太爽了！今晚趨勢刷起來！😎 #MoonshadowSeries #EmiBonnie" },
-            { style: "不回頭的愛", text: "當初走得那麼果斷，現在憑什麼求我回頭？Chan 對 Jay 的拒絕有多不留情面，就代表她對 Key 的愛有多死心塌地！Jay 的苦情哀求註定是一場空，下集大修羅場坐等！❤️‍🔥 #MoonshadowSeries #EmiBonnie" },
-            { style: "深夜修羅場", text: "盲猜下一集：Jay 在 Chan 的公司門口攔車，卑微地哭訴過去的溫存，但 Chan 連車窗都懶得搖下來。這種前任苦情拉扯、現任甜蜜發糖的反差太刺激了，今晚 20:30 鎖定首播！🚗💥 #MoonshadowSeries #EmiBonnie" },
+            // 【核心 2：前任 Jay 嘅苦情哀求同 Chan 嘅決絕】
+            { style: "前任危機 ‧ 苦情哀求", text: "Chan 已經同前任 Jay 講得一清二楚：我哋冇可能復合。但 Jay 居然仲喺雨入面苦苦哀求、一邊流淚一邊拉住 Chan 唔放。下集修羅場高燃，今晚先喺 𝕏 幫 Chan 總裁宣示主權！🔥💔 #MoonshadowSeries #EmiBonnie" },
+            { style: "Jay 嘅執念", text: "睇住 Jay 卑微到入塵埃嘅哀求，雖然有少少可憐，但 Chan 嘅冷漠同決絕真係型到爆！Chan 話：我嘅未來淨係得 Key。呢句直頭封神！下集搞快點，週三綜合症要爆發啦！😭💥 #MoonshadowSeries #EmiBonnie" },
+            { style: "決絕與拉扯", text: "前任 Jay 嘅苦苦哀求，淨係換嚟 Chan 一句冷冰冰嘅放手。盲猜下集 Jay 會見到 Chan 同 Key 甜蜜同居嘅畫面而徹底崩潰。現任完勝嘅節奏太爽啦！今晚趨勢刷起來！😎 #MoonshadowSeries #EmiBonnie" },
+            { style: "不回頭嘅愛", text: "當初走得咁果斷，依家憑咩求我擰返轉頭？Chan 對 Jay 嘅拒絕有多不留情面，就代表佢對 Key 嘅愛有多死心塌地！Jay 嘅苦情哀求注定一場空，下集大修羅場坐等！❤️‍🔥 #MoonshadowSeries #EmiBonnie" },
+            { style: "深夜修羅場", text: "盲猜下一集：Jay 喺 Chan 公司門口攔車，卑微到喊住追憶過去嘅溫存，但 Chan 連車窗都費事搖落嚟。呢種前任苦情拉扯、現任甜蜜發糖嘅反差太刺激啦，今晚 20:30 鎖定首播！🚗💥 #MoonshadowSeries #EmiBonnie" },
 
-            // 【核心 3：新威脅 ‧ Chan 媽媽的突然到訪與階級危機】
-            { style: "新威脅篇 ‧ 母親到訪", text: "甜蜜生活迎來最大危機！Chan 媽媽突然冷酷到訪，那個看著 Key 的挑剔眼神，階級差距的壓迫感瞬間拉滿！盲猜下集要開始搞豪門阻礙了，今晚先在 𝕏 刷一波應援幫她們打氣！😭🔥 #MoonshadowSeries #EmiBonnie" },
-            { style: "豪門風暴", text: "Chan 媽的突然出現簡直是晴天霹靂！她甩出的不裝作階級偏見，更是對這段剛確認關係的甜蜜生活的巨大威脅。盲猜下集 Chan 會為了保護 Key 和媽媽正面硬剛！下集快播吧！💥 #MoonshadowSeries #EmiBonnie" },
-            { style: "階級危機预警", text: "盲猜下一集：Chan 媽私下約見 Key，冷冰冰地說妳和 Chan 不是一個世界的人。這種豪門婆媳走向雖然氣人，但霸總 Chan 絕對會護妻到底！今晚 20:30 鎖定直播！🎙️💔 #MoonshadowSeries #EmiBonnie" },
-            { style: "母親的壓迫感", text: "Chan 媽媽那個氣場尊的太可怕了，一出場就讓原本溫馨的公寓空氣凝固。這個新威脅直接打破了 Chan 和 Key 對未來的甜蜜嚮往。心疼她們，今晚必須把推特趨勢刷到第一！🚀🌙 #MoonshadowSeries #EmiBonnie" },
-            { style: "家庭阻礙", text: "Chan 媽媽把出身和門當戶對看得比什麼都重要，對她來說，酒吧歌手 Key 就是個不穩定的威脅。盲猜下集兩人的同居生活會被搞破壞，今晚大家一起爆肝刷熱度，守護 EmiBonnie！❤️‍🔥 #MoonshadowSeries #EmiBonnie" },
+            // 【核心 3：新威脅 ‧ Chan 媽媽嘅突然到訪同階級危機】
+            { style: "新威脅篇 ‧ 母親到訪", text: "甜蜜生活迎嚟最大危機！Chan 媽媽突然冷酷到訪，嗰個望住 Key 嘅挑剔眼神，階級差距嘅壓迫感瞬間拉滿！盲猜下集要開始搞豪門阻礙，今晚先喺 𝕏 刷一波應援幫佢哋打氣！😭🔥 #MoonshadowSeries #EmiBonnie" },
+            { style: "豪門風暴", text: "Chan 媽嘅突然出現直頭係晴天霹靂！佢甩出嚟嘅唔單止係階級偏見，更加係對呢段啱啱確認關係嘅甜蜜生活嘅巨大威脅。盲猜下集 Chan 會為了保護 Key 同阿媽正面硬剛！下集快啲播啦！💥 #MoonshadowSeries #EmiBonnie" },
+            { style: "階級危機預警", text: "盲猜下一集：Chan 媽私下約見 Key，冷冰冰咁講妳同 Chan 根本唔係同一個世界嘅人。呢種豪門婆媳走向雖然激氣，但霸總 Chan 絕對會護妻到底！今晚 20:30 鎖定直播！🎙️💔 #MoonshadowSeries #EmiBonnie" },
+            { style: "母親嘅壓迫感", text: "Chan 媽媽嗰個氣場真係太恐怖，一登場就令到原本溫馨嘅公寓空氣凝結。呢個新威脅直接打破咗 Chan 同 Key 對未來嘅甜蜜嚮往。心疼佢哋，今晚必須將推特趨勢刷到第一！🚀🌙 #MoonshadowSeries #EmiBonnie" },
+            { style: "家庭阻礙", text: "Chan 媽媽將出身同門當戶對睇得重要過一切，對佢嚟講，酒吧歌手 Key 就係個唔穩定嘅威脅。盲猜下集兩個人嘅同居生活會被搞破壞，今晚大家一齊爆肝刷熱度，守護 EmiBonnie！❤️‍🔥 #MoonshadowSeries #EmiBonnie" },
 
-            // 【核心 4：深夜虐點 ‧ Key 隱瞞的 PTSD 創傷】
-            { style: "深夜虐點 ‧ PTSD創傷", text: "表面上玩世不恭、笑得那麼甜的 Key，背後居然隱藏著未曾跟 Chan 袒露的 PTSD 創傷！看著她半夜從噩夢中驚醒、全身發抖的樣子，心疼死我了！今晚推特刷起來，給我們寶貝最頂級的應援！😭💔 #MoonshadowSeries #EmiBonnie" },
-            { style: "隱藏的過去", text: "Key 在台上唱歌時那麼耀眼，誰能想到她深夜一個人躲在角落裡對抗 PTSD 創傷的折磨。那段不為人知的過去，她究竟什麼時候才肯對 Chan 坦白啊！倒數星期三，劇迷綜合症要逼瘋我了！😭💥 #MoonshadowSeries #EmiBonnie" },
-            { style: "噩夢驚醒預警", text: "盲猜下一集名場面：深夜雷雨交加，Key 被未坦露的過去噩夢糾纏、PTSD 發作。Chan 溫柔地把她抱在懷裡，一聲聲安慰。這種深夜互相救贖的糖，雖然帶血但太好嗑了！今晚 20:30 鎖定首播！🎙️🖤 #MoonshadowSeries #EmiBonnie" },
-            { style: "未癒合的傷口", text: "聽見 Key 痛苦唸出我的過去是一片廢墟，我怕會弄髒妳的溫柔這句內心獨白，直接虐哭我。看著她為了不讓 Chan 擔心而隱瞞 PTSD 創傷，今晚必須在 𝕏 幫她們刷上世界第一！🚀🌙 #MoonshadowSeries #EmiBonnie" },
-            { style: "溫柔的解藥", text: "Chan 的懷抱是 Key 治癒 PTSD 創傷的唯一解藥。看著她們在深夜互相依偎、坦白過去的畫面，那種靈魂契合的甜蜜憧憬尊的太美好了。今晚必須在推特把應援熱度刷上第一！🚀🥰 #MoonshadowSeries #EmiBonnie" }
+            // 【核心 4：深夜虐點 ‧ Key 隱瞞嘅 PTSD 創傷】
+            { style: "深夜虐點 ‧ PTSD創傷", text: "表面上玩世不恭、笑得咁甜嘅 Key，背後居然隱藏住未曾同 Chan 講過嘅 PTSD 創傷！睇住佢半夜由噩夢入面驚醒、成身發抖嘅樣，心疼死我啦！今晚推特刷起來，畀我哋寶貝最頂級嘅應援！😭💔 #MoonshadowSeries #EmiBonnie" },
+            { style: "隱藏嘅過去", text: "Key 喺台上唱歌嗰陣咁耀眼，邊個估到佢深夜一個人匿喺角落頭對抗 PTSD 創傷嘅折磨。嗰段不為人知嘅過去，佢究竟幾時才肯同 Chan 坦白啊！倒數星期三，劇迷綜合症要逼瘋我啦！😭💥 #MoonshadowSeries #EmiBonnie" },
+            { style: "噩夢驚醒預警", text: "盲猜下一集名場面：深夜雷雨交加，Key 被未坦露嘅過去噩夢糾纏、PTSD 發作。Chan 溫柔咁將佢抱喺懷入面，一聲聲安慰。呢種深夜互相救贖嘅糖，雖然帶血但太好嗑啦！今晚 20:30 鎖定首播！🎙️🖤 #MoonshadowSeries #EmiBonnie" },
+            { style: "未癒合嘅傷口", text: "聽見 Key 痛苦咁講出我嘅過去是一片廢墟，我怕會整污糟妳嘅溫柔呢句內心獨白，直接虐喊我。今晚必須喺 𝕏 幫佢哋刷上世界第一！🚀🌙 #MoonshadowSeries #EmiBonnie" },
+            { style: "溫柔嘅解藥", text: "Chan 嘅懷抱係 Key 治癒 PTSD 創傷嘅唯一解藥。睇住佢哋喺深夜互相依偎、坦白過去嘅畫面，呢種靈魂契合嘅甜蜜憧憬真係太美好。今晚必須喺推特將應援熱度刷上第一！🚀🥰 #MoonshadowSeries #EmiBonnie" }
         ];
 
         let log = [];
@@ -140,27 +140,3 @@
             setTimeout(() => {
                 document.getElementById("caption-style").innerText = sel.style;
                 textEl.innerText = sel.text;
-                document.getElementById("caption-count").innerText = log.length + "/" + captions.length;
-                current = sel.text;
-                textEl.style.opacity = 1;
-            }, 120);
-        }
-
-        function copyToClipboard() {
-            if (!current) return;
-            navigator.clipboard.writeText(current).then(() => {
-                const t = document.getElementById("toast");
-                t.style.opacity = 1;
-                setTimeout(() => { t.style.opacity = 0; }, 1200);
-            });
-        }
-
-        function shareToTwitter() {
-            if (!current) return;
-            window.open("https://twitter.com" + encodeURIComponent(current), '_blank');
-        }
-
-        window.onload = function() { generateCaption(); };
-    </script>
-</body>
-</html>
