@@ -17,26 +17,27 @@
             justify-content: space-between;
             position: relative;
         }
-        /* 圖片背景層 */
+        /* 圖片背景層：直接把備用格式寫在 CSS 裡，最穩定安全 */
         #dynamic-bg { 
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background-image: url('Moonshadow_Poster'), url('Moonshadow_Poster.png'), url('Moonshadow_Poster.PNG'), url('Moonshadow_Poster.jpg');
             background-size: cover; background-position: center; background-repeat: no-repeat; 
             opacity: 0.18; z-index: -1; pointer-events: none; 
         }
         /* 頂部標題 */
         header { 
             padding: 20px; text-align: center; 
-            border-b: 1px solid #1f2937; background-color: rgba(0, 0, 0, 0.6); 
+            border-bottom: 1px solid #1f2937; background-color: rgba(0, 0, 0, 0.6); 
             backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
         }
-        header h1 { color: #c084fc; font-size: 22px; tracking-letter: 1px; font-weight: bold; }
+        header h1 { color: #c084fc; font-size: 22px; letter-spacing: 1px; font-weight: bold; }
         header p { color: #9ca3af; font-size: 12px; margin-top: 5px; }
-        /* 主體內容卡片 */
+        /* 主體內容卡片：修復了 w:100% 的錯誤，改回正確的 width: 100% */
         main { flex-grow: 1; display: flex; align-items: center; justify-content: center; padding: 20px; }
         .card { 
             background-color: rgba(17, 24, 39, 0.95); border: 1px solid #374151; 
             padding: 24px; border-radius: 16px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5); 
-            max-width: 500px; w: 100%; text-align: center; backdrop-filter: blur(10px);
+            max-width: 500px; width: 100%; text-align: center; backdrop-filter: blur(10px);
         }
         .meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
         .badge { 
@@ -73,6 +74,7 @@
 </head>
 <body>
 
+    <!-- 純原生的多重防錯背景層 -->
     <div id="dynamic-bg"></div>
 
     <header>
@@ -103,21 +105,6 @@
     <footer>每週三 20:30 連動推測庫 ‧ Powered by Vercel</footer>
 
     <script>
-        function tryLoadBackground() {
-            const bg = document.getElementById('dynamic-bg');
-            const exts = ['', '.png', '.PNG', '.jpg', '.jpeg'];
-            let i = 0;
-            function test() {
-                if (i >= exts.length) return;
-                const url = 'Moonshadow_Poster' + exts[i];
-                const img = new Image();
-                img.src = url;
-                img.onload = function() { bg.style.backgroundImage = "url('" + url + "')"; };
-                img.onerror = function() { i++; test(); };
-            }
-            test();
-        }
-
         const captions = [
             // 【1-25 條：確認關係後的甜蜜生活與憧憬】
             { style: "確認關係 ‧ 甜蜜生活", text: "告別金錢合約，迎來真正的清晨吻。看著 Chan 和 Key 一起逛超市選餐具的樣子，這就是我想像中完美的同居生活啊！下集搞快點，我現在就有嚴重的週三綜合症！🛒❤️ #MoonshadowSeries #EmiBonnie #GMMTV" },
@@ -130,7 +117,7 @@
             { style: "柴米油鹽", text: "當高冷總裁解下西裝、換上居家服幫 Key 做早餐，這份對甜蜜生活的憧憬簡直擊中我的心臟。每週三看 Moon Shadow 就是我的續命仙丹，下集搞快點！🍳✨ #MoonshadowSeries #EmiBonnie" },
             { style: "命定同居", text: "合約撕毀的那一天，才是真愛的開始。看著她們計畫著把公寓重新佈置，滿滿都是對未來的熱情，這就是真情侶的底氣！盲猜下集會甜到發瘟，大家準備好胰島素！🔥❤️ #MoonshadowSeries #EmiBonnie" },
             { style: "鋼琴前的吻", text: "盲猜下一集：深夜的客廳，Key 在鋼琴前彈奏新歌，Chan 從背後溫柔擁抱。確認關係後的黏人精 Chan 總裁真的太犯規了，距離星期三還有七天，我快要戒斷反應了！😭🎹 #MoonshadowSeries #EmiBonnie" },
-            { style: "心動日常", text: "從酒吧相遇的危險吸引，到如今滿眼都是柴米油鹽的幸福。Chan 和 Key 對未來生活的憧憬真的太美好了。今晚 20:30 必須在推特把熱度刷爆，給 EmiBonnie 頂級應援！🚀💖 #MoonshadowSeries #EmiBonnie" },
+            { style: "心動日常", text: "從酒吧相遇的危險吸引，到如今滿眼都是柴米油鹽的幸福。Chan 和 Key 對未來生活的憧憬真的太美好。今晚 20:30 必須在推特把熱度刷爆，給 EmiBonnie 頂級應援！🚀💖 #MoonshadowSeries #EmiBonnie" },
             { style: "情侶睡衣預警", text: "盲猜下集有情侶睡衣名場面！Chan 寵溺地捏著 Key 的臉頰，兩個人在沙發上規劃旅行。成年人談起戀愛來的甜蜜憧憬，尊的會讓人一邊看一邊在床上扭成麻花！😂 #MoonshadowSeries #EmiBonnie" },
             { style: "幸福的引力", text: "「這一次，我們不談條件，只談一輩子。」聽完 Chan 的告白，Key 那個幸福的眼淚簡直成噸暴擊我。確認關係後的同居生活請給我拍一百集！今晚衝世界趨勢第一！🌙❤️ #MoonshadowSeries #EmiBonnie" },
             { style: "總裁變忠犬", text: "確認關係前的 Chan：冷酷無情。確認關係後的 Chan：秒變黏人忠犬大姐姐。看著她們對未來安穩生活的期盼，我就知道這部劇值得我每週三熬夜爆肝刷 𝕏！😎🍬 #MoonshadowSeries #EmiBonnie" },
@@ -150,3 +137,5 @@
             { style: "前任危機 ‧ 苦情哀求", text: "Chan 已經和前任 Jay 說得清清楚楚：『我們不可能複合。』但 Jay 居然還在雨中苦苦哀求、一邊流淚一邊拉著 Chan 不放。下集修羅場高燃，今晚先在 𝕏 幫 Chan 總裁宣示主權！🔥💔 #MoonshadowSeries #EmiBonnie" },
             { style: "Jay 的執念", text: "看著 Jay 卑微到塵埃裡的哀求，雖然有點可憐，但 Chan 的冷漠和決絕真的太帥了！Chan 說：『我的未來只有 Key。』這句話直接封神！下集搞快點，週三綜合症要爆發了！😭💥 #MoonshadowSeries #EmiBonnie" },
             { style: "決絕與拉扯", text: "前任 Jay 的苦苦哀求，只換來 Chan 一句冷冰冰的『放手』。盲猜下集 Jay 會看到 Chan 和 Key 甜蜜同居的畫面而徹底崩潰。虐前任的橋段雖然苦情但我愛看！今晚趨勢刷起來！😎 #MoonshadowSeries #EmiBonnie" },
+            { style: "不回頭的愛", text: "「當初走得那麼果斷，現在憑什麼求我回頭？」Chan 對 Jay 的拒絕有多不留情面，就代表她對 Key 的愛有多死心塌地！Jay 的苦情哀求註定是一場空，下集大修羅場坐等！❤️‍🔥 #MoonshadowSeries #EmiBonnie" },
+            { style: "深夜修羅場", text: "盲猜下一集：Jay 在 Chan 的公司門口攔車，卑微地哭訴過去的溫存，但 Chan 連車窗都懶得搖下來。這種前任苦情拉扯、現任甜蜜發糖的反差太刺激了，今晚 20:30 鎖定首播！🚗💥 #MoonshadowSeries #EmiBonnie" },
